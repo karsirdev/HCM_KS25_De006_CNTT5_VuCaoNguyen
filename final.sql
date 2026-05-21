@@ -100,6 +100,9 @@ VALUES (1, '8003', 1, '2024-05-20 09:05', 'Bat Dau Lop Hoc'),
 (5, '8005', 4, '2024-05-20 09:05', 'Huy Do Vang Qua So Buoi');
 
 
+-- ----------------------------------------------------------
+
+
 -- cau 1 them 1 tin chi
 UPDATE Enrollments 
 SET credits = credits + 1 WHERE status = 'Completed' AND enroll_time < '2000-01-01';
@@ -109,6 +112,10 @@ SELECT * FROM Enrollments;
 
 -- cau 2 Xoa ban ghi co truoc 20-05-2024
 DELETE FROM Academic_logs WHERE log_time < '2024-05-20';
+
+
+-- ----------------------------------------------------------
+
 
 -- Phan 3
 -- Cau 1 Liet ke GPA > 3.8  thuoc Ky Thuat PM
@@ -121,6 +128,11 @@ SELECT course_name, course_code FROM Courses WHERE (creation_date BETWEEN '1998-
 -- cau 3 Sap xep so tin chi giam gian lay 2 ban ghi o trang 2
 SELECT enrollment_id, enroll_time, credits FROM Enrollments 
 ORDER BY credits DESC LIMIT 2 OFFSET 2;
+
+
+-- --------------------------------------------------------------
+
+
 
 -- Phan 4
 -- cau 1
@@ -139,6 +151,10 @@ SELECT s.student_id, s.full_name, s.gpa, AVG(gpa) AS gpa_max FROM Students s
 ORDER BY gpa_max DESC LIMIT 1;
 
 
+
+-- -----------------------------------------------------------
+
+
 -- Phan 5 
 -- cau 1
 CREATE INDEX idx_status ON Enrollments(status, credits);
@@ -148,6 +164,10 @@ CREATE VIEW view_Students AS
 SELECT s.full_name, c.course_name, e.credits, e.status FROM Students s
 JOIN Enrollments e ON s.student_id = e.student_id
 JOIN Courses c ON e.course_id = c.course_id WHERE status <> 'Dropped';
+
+
+-- ---------------------------------------------------------------
+
 
 -- Phan 6 
 -- cau 1
