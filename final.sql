@@ -119,7 +119,7 @@ DELETE FROM Academic_logs WHERE log_time < '2024-05-20';
 
 -- Phan 3
 -- Cau 1 Liet ke GPA > 3.8  thuoc Ky Thuat PM
-SELECT full_name, major, gpa FROM Students WHERE gpa > 3.8 OR major = 'Ky Thua PM';
+SELECT full_name, major, gpa FROM Students WHERE gpa > 3.8 OR major = 'Ky Thuat PM';
 
 
 -- cau 2 liet ke cac mon co tu 1998-01-01 den 2001-12-31 va bat dau bang A
